@@ -1,32 +1,37 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Post extends Model {}
+class Reviews extends Model {}
 
-// create fields/columns for Post model
-Post.init(
+Reviews.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    post_url: {
+    review_text: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isURL: true,
+        len: [1],
       },
     },
     user_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: 'user',
+        key: 'id',
+      },
+    },
+    // ##############################
+    // post_id will need to be changed to watch_list* etc
+    post_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'post',
         key: 'id',
       },
     },
@@ -35,8 +40,8 @@ Post.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'post',
+    modelName: 'reviews',
   }
 );
 
-module.exports = Post;
+module.exports = Reviews;
