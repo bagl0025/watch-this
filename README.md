@@ -39,6 +39,7 @@ Refer to [Contributor Covenant](https://www.contributor-covenant.org/) for contr
 Contact authord at:
 - bagley@umn.edu   
 - ecarlson0123@yahoo.com  
+- oscarhurtadosb@gmail.com
 for questions or to report issues.
 
 Add other team members here ???
