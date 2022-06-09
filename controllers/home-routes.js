@@ -1,16 +1,16 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Reviews } = require('../models');
+const { WatchList, User, Reviews } = require('../models');
 
-// get all posts for homepage
+// get all watchlists for homepage
 router.get('/', (req, res) => {
   console.log('======================');
-  Post.findAll({
-    attributes: ['id', 'post_url', 'title', 'created_at'],
+  WatchList.findAll({
+    attributes: ['id', 'title', 'created_at'],
     include: [
       {
         model: Reviews,
-        attributes: ['id', 'reviews_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ['id', 'reviews_text', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username'],
@@ -22,11 +22,11 @@ router.get('/', (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => {
-      const posts = dbPostData.map((post) => post.get({ plain: true }));
+    .then((dbWatchListData) => {
+      const watchlists = dbWatchListData.map((watchlist) => watchlist.get({ plain: true }));
 
       res.render('homepage', {
-        posts,
+        watchlists,
         loggedIn: req.session.loggedIn,
       });
     })
@@ -36,17 +36,17 @@ router.get('/', (req, res) => {
     });
 });
 
-// get single post
-router.get('/post/:id', (req, res) => {
-  Post.findOne({
+// get single watchlist
+router.get('/watchlist/:id', (req, res) => {
+  WatchList.findOne({
     where: {
       id: req.params.id,
     },
-    attributes: ['id', 'post_url', 'title', 'created_at'],
+    attributes: ['id', 'title', 'created_at'],
     include: [
       {
         model: Reviews,
-        attributes: ['id', 'reviews_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ['id', 'reviews_text', 'watchlist_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username'],
@@ -58,16 +58,16 @@ router.get('/post/:id', (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => {
-      if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
+    .then((dbWatchListData) => {
+      if (!dbWatchListData) {
+        res.status(404).json({ message: 'No watchlist found with this id' });
         return;
       }
 
-      const post = dbPostData.get({ plain: true });
+      const watchlist = dbWatchListData.get({ plain: true });
 
-      res.render('single-post', {
-        post,
+      res.render('single-watchlist', {
+        watchlist,
         loggedIn: req.session.loggedIn,
       });
     })
