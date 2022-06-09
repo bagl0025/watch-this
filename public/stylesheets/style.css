@@ -142,20 +142,20 @@ main {
   background-color: #1f9c13;
 }
 
-.comment-form {
+.reviews-form {
   margin-bottom: 5%;
 }
 
-.comment {
+.review {
   padding: 1%;
   margin-bottom: 1%;
 }
 
-.comment:nth-child(odd) {
+.reviews:nth-child(odd) {
   background-color: #fff5eb;
 }
 
-.comment .meta {
+.reviews .meta {
   font-size: 90%;
   margin-bottom: .5%;
   opacity: .6;

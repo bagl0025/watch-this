@@ -1,21 +1,19 @@
 {{> post-info post}}
 
 {{#if loggedIn}}
-<form class="comment-form">
+<form class="reviews-form">
   <div>
-    <textarea name="comment-body"></textarea>
+    <textarea name="reviews-body"></textarea>
   </div>
 
   <div>
-    <button type="submit">add comment</button>
-    <button type="button" class="upvote-btn">upvote</button>
+    <button type="submit">add review</button>
   </div>
 </form>
 {{/if}}
 
-{{> comments post.comments}}
+{{> reviews post.reviews}}
 
 {{#if loggedIn}}
-<script src="/javascript/comment.js"></script>
-<script src="/javascript/upvote.js"></script>
+<script src="/javascript/reviews.js"></script>
 {{/if}}
