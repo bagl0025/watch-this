@@ -146,7 +146,7 @@ main {
   margin-bottom: 5%;
 }
 
-.comment {
+.review {
   padding: 1%;
   margin-bottom: 1%;
 }
@@ -155,7 +155,7 @@ main {
   background-color: #fff5eb;
 }
 
-.comment .meta {
+.review .meta {
   font-size: 90%;
   margin-bottom: .5%;
   opacity: .6;
