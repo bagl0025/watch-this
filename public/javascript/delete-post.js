@@ -4,8 +4,8 @@ async function deleteFormHandler(event) {
   const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
-  const response = await fetch(`/api/posts/${id}`, {
-    method: 'DELETE'
+  const response = await fetch(`/api/watchlists/${id}`, {
+    method: 'DELETE',
   });
 
   if (response.ok) {
@@ -15,4 +15,6 @@ async function deleteFormHandler(event) {
   }
 }
 
-document.querySelector('.delete-post-btn').addEventListener('click', deleteFormHandler);
+document
+  .querySelector('.delete-watchlists-btn')
+  .addEventListener('click', deleteFormHandler);
