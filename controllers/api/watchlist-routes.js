@@ -1,16 +1,16 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User, Reviews } = require('../../models');
+const { WatchList, User, Reviews } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get all users
 router.get('/', (req, res) => {
-  Post.findAll({
-    attributes: ['id', 'post_url', 'title', 'created_at'],
+  WatchList.findAll({
+    attributes: ['id', 'title', 'created_at'],
     include: [
       {
         model: Reviews,
-        attributes: ['id', 'reviews_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ['id', 'reviews_text', 'watchlist_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username'],
@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => res.json(dbPostData))
+    .then((dbWatchListData) => res.json(dbWatchListData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -30,15 +30,15 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  Post.findOne({
+  WatchList.findOne({
     where: {
       id: req.params.id,
     },
-    attributes: ['id', 'post_url', 'title', 'created_at'],
+    attributes: ['id', 'title', 'created_at'],
     include: [
       {
         model: Reviews,
-        attributes: ['id', 'reviews_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ['id', 'reviews_text', 'watchlist_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username'],
@@ -50,12 +50,12 @@ router.get('/:id', (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => {
-      if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
+    .then((dbWatchListData) => {
+      if (!dbWatchListData) {
+        res.status(404).json({ message: 'No WatchList found with this id' });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbWatchListData);
     })
     .catch((err) => {
       console.log(err);
@@ -64,12 +64,12 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-  Post.create({
+  WatchList.create({
     title: req.body.title,
-    post_url: req.body.post_url,
+    WatchList_url: req.body.WatchList_url,
     user_id: req.session.user_id,
   })
-    .then((dbPostData) => res.json(dbPostData))
+    .then((dbWatchListData) => res.json(dbWatchListData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -77,7 +77,7 @@ router.post('/', withAuth, (req, res) => {
 });
 
 router.put('/:id', withAuth, (req, res) => {
-  Post.update(
+  WatchList.update(
     {
       title: req.body.title,
     },
@@ -87,12 +87,12 @@ router.put('/:id', withAuth, (req, res) => {
       },
     }
   )
-    .then((dbPostData) => {
-      if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
+    .then((dbWatchListData) => {
+      if (!dbWatchListData) {
+        res.status(404).json({ message: 'No WatchList found with this id' });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbWatchListData);
     })
     .catch((err) => {
       console.log(err);
@@ -102,17 +102,17 @@ router.put('/:id', withAuth, (req, res) => {
 
 router.delete('/:id', withAuth, (req, res) => {
   console.log('id', req.params.id);
-  Post.destroy({
+  WatchList.destroy({
     where: {
       id: req.params.id,
     },
   })
-    .then((dbPostData) => {
-      if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
+    .then((dbWatchListData) => {
+      if (!dbWatchListData) {
+        res.status(404).json({ message: 'No WatchList found with this id' });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbWatchListData);
     })
     .catch((err) => {
       console.log(err);
