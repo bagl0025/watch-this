@@ -1,19 +1,19 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Reviews } = require('../models');
+const { User, Reviews, WatchList } = require('../models');
 const withAuth = require('../utils/auth');
 
-// get all posts for dashboard
+// get all pwatchlists for dashboard
 router.get('/', withAuth, (req, res) => {
-  Post.findAll({
+  WatchList;.findAll({
     where: {
       user_id: req.session.user_id,
     },
-    attributes: ['id', 'post_url', 'title', 'created_at'],
+    attributes: ['id', 'title', 'created_at'],
     include: [
       {
         model: Reviews,
-        attributes: ['id', 'reviews_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ['id', 'reviews_text', 'watchlist_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username'],
@@ -25,9 +25,9 @@ router.get('/', withAuth, (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => {
-      const posts = dbPostData.map((post) => post.get({ plain: true }));
-      res.render('dashboard', { posts, loggedIn: true });
+    .then((dbWatchListData) => {
+      const watchlists = dbWatchListData.map((watchlist) =>  watchlist.get({ plain: true }));
+      res.render('dashboard', { watchlists, loggedIn: true });
     })
     .catch((err) => {
       console.log(err);
@@ -36,12 +36,12 @@ router.get('/', withAuth, (req, res) => {
 });
 
 router.get('/edit/:id', withAuth, (req, res) => {
-  Post.findByPk(req.params.id, {
-    attributes: ['id', 'post_url', 'title', 'created_at'],
+  WatchList.findByPk(req.params.id, {
+    attributes: ['id', 'title', 'created_at'],
     include: [
       {
         model: Reviews,
-        attributes: ['id', 'reviews_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ['id', 'reviews_text', 'watchlist_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username'],
@@ -53,12 +53,12 @@ router.get('/edit/:id', withAuth, (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => {
-      if (dbPostData) {
-        const post = dbPostData.get({ plain: true });
+    .then((dbWatchListData) => {
+      if (dbWatchListData) {
+        const watchlist = dbWatchListData.get({ plain: true });
 
-        res.render('edit-post', {
-          post,
+        res.render('edit-watchlist', {
+          watchlist,
           loggedIn: true,
         });
       } else {
