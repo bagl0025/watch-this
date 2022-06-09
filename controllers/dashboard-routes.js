@@ -3,9 +3,9 @@ const sequelize = require('../config/connection');
 const { User, Reviews, WatchList } = require('../models');
 const withAuth = require('../utils/auth');
 
-// get all pwatchlists for dashboard
+// get all watchlists for dashboard
 router.get('/', withAuth, (req, res) => {
-  WatchList;.findAll({
+  WatchList.findAll({
     where: {
       user_id: req.session.user_id,
     },
@@ -13,7 +13,13 @@ router.get('/', withAuth, (req, res) => {
     include: [
       {
         model: Reviews,
-        attributes: ['id', 'reviews_text', 'watchlist_id', 'user_id', 'created_at'],
+        attributes: [
+          'id',
+          'reviews_text',
+          'watchlist_id',
+          'user_id',
+          'created_at',
+        ],
         include: {
           model: User,
           attributes: ['username'],
@@ -26,7 +32,9 @@ router.get('/', withAuth, (req, res) => {
     ],
   })
     .then((dbWatchListData) => {
-      const watchlists = dbWatchListData.map((watchlist) =>  watchlist.get({ plain: true }));
+      const watchlists = dbWatchListData.map((watchlist) =>
+        watchlist.get({ plain: true })
+      );
       res.render('dashboard', { watchlists, loggedIn: true });
     })
     .catch((err) => {
@@ -41,7 +49,13 @@ router.get('/edit/:id', withAuth, (req, res) => {
     include: [
       {
         model: Reviews,
-        attributes: ['id', 'reviews_text', 'watchlist_id', 'user_id', 'created_at'],
+        attributes: [
+          'id',
+          'reviews_text',
+          'watchlist_id',
+          'user_id',
+          'created_at',
+        ],
         include: {
           model: User,
           attributes: ['username'],
