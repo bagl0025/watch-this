@@ -27,11 +27,11 @@ Reviews.init(
     },
     // ##############################
     // post_id will need to be changed to watch_list* etc
-    post_id: {
+    watchlist_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'post',
+        model: 'watchlist',
         key: 'id',
       },
     },

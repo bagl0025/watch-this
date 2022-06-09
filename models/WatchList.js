@@ -1,10 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Post extends Model {}
+class WatchList extends Model {}
 
 // create fields/columns for Post model
-Post.init(
+WatchList.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -15,13 +15,6 @@ Post.init(
     title: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    post_url: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        isURL: true,
-      },
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -39,4 +32,4 @@ Post.init(
   }
 );
 
-module.exports = Post;
+module.exports = WatchList;
