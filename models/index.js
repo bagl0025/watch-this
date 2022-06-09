@@ -1,5 +1,5 @@
 const User = require('./User');
-const WatchList = require('./Watchlist');
+const WatchList = require('./WatchList');
 const Reviews = require('./Reviews');
 
 // create associations

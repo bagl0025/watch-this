@@ -76,6 +76,7 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
+//TODO update put for movies etc...
 router.put('/:id', withAuth, (req, res) => {
   WatchList.update(
     {
