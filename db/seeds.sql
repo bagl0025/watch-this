@@ -1,7 +1,7 @@
 USE watch_this_db;
 
 INSERT INTO
-    watchList (name)
+    watchlist (title)
 VALUES
     ('Movies'),
     ('Shows'),
@@ -11,7 +11,8 @@ INSERT INTO
     info (title, releasedYear, watchList_id)
 VALUES
     ('Top Gun: Maverick', 2022, 1),
-    ('Jurassic World: Dominion', 2022, 12) ('The Bobs Burgers Movie', 2022, 3);
+    ('Jurassic World: Dominion', 2022, 12);
+    -- ('The Bobs Burgers Movie', 2022, 3);
 
 -- INSERT INTO
 

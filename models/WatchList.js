@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 class WatchList extends Model {}
 
-// create fields/columns for Post model
+// create fields/columns for WatchList model
 WatchList.init(
   {
     id: {
@@ -15,7 +15,7 @@ WatchList.init(
     title: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
+    },    
     user_id: {
       type: DataTypes.INTEGER,
       references: {
