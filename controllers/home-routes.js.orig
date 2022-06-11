@@ -5,13 +5,8 @@ const { WatchList, User, Reviews } = require('../models');
 // get all watchlists for homepage
 router.get('/', (req, res) => {
   console.log('======================');
-<<<<<<< HEAD
-  Post.findAll({
-    attributes: ['id', 'reviews_text', 'title', 'created_at'],
-=======
   WatchList.findAll({
     attributes: ['id', 'title', 'created_at'],
->>>>>>> a2bc01cc74fe2ce6607d2495856dce917f2df5ee
     include: [
       {
         model: Reviews,
