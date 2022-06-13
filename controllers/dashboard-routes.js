@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 const { User, Reviews, WatchList } = require('../models');
 const withAuth = require('../utils/auth');
 
-// get all pwatchlists for dashboard
+// get all watchlists for dashboard
 router.get('/', withAuth, (req, res) => {
   WatchList.findAll({
     where: {
