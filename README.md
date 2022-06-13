@@ -41,6 +41,7 @@ Contact authors at:
 - ecarlson0123@yahoo.com  
 - oscarhurtadosb@gmail.com
 - markofprogress@gmail.com
+
 for questions or to report issues.
 
 ## GitHub
