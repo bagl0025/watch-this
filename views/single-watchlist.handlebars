@@ -1,4 +1,4 @@
-{{> post-info post}}
+{{> watchList-info watchlist}}
 
 {{#if loggedIn}}
 <form class="reviews-form">
@@ -12,7 +12,7 @@
 </form>
 {{/if}}
 
-{{> reviews post.reviews}}
+{{> reviews watchlist.reviews}}
 
 {{#if loggedIn}}
 <script src="/javascript/reviews.js"></script>

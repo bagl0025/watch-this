@@ -10,7 +10,13 @@ router.get('/', (req, res) => {
     include: [
       {
         model: Reviews,
-        attributes: ['id', 'reviews_text', 'watchlist_id', 'user_id', 'created_at'],
+        attributes: [
+          'id',
+          'reviews_text',
+          'watchlist_id',
+          'user_id',
+          'created_at',
+        ],
         include: {
           model: User,
           attributes: ['username'],
@@ -38,7 +44,13 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Reviews,
-        attributes: ['id', 'reviews_text', 'watchlist_id', 'user_id', 'created_at'],
+        attributes: [
+          'id',
+          'reviews_text',
+          'watchlist_id',
+          'user_id',
+          'created_at',
+        ],
         include: {
           model: User,
           attributes: ['username'],
@@ -66,7 +78,7 @@ router.get('/:id', (req, res) => {
 router.post('/', withAuth, (req, res) => {
   WatchList.create({
     title: req.body.title,
-    WatchList_url: req.body.WatchList_url,
+    // WatchList_url: req.body.WatchList_url,
     user_id: req.session.user_id,
   })
     .then((dbWatchListData) => res.json(dbWatchListData))

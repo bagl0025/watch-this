@@ -1,19 +1,19 @@
 async function reviewFormHandler(event) {
   event.preventDefault();
 
-  const review_text = document
-    .querySelector('textarea[name="review-body"]')
+  const reviews_text = document
+    .querySelector('textarea[name="reviews-body"]')
     .value.trim();
-  const post_id = window.location.toString().split('/')[
+  const watchlist_id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
 
-  if (review_text) {
+  if (reviews_text) {
     const response = await fetch('/api/reviews', {
       method: 'POST',
       body: JSON.stringify({
-        post_id,
-        review_text,
+        watchlist_id,
+        reviews_text,
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -29,5 +29,5 @@ async function reviewFormHandler(event) {
 }
 
 document
-  .querySelector('.review-form')
+  .querySelector('.reviews-form')
   .addEventListener('submit', reviewFormHandler);

@@ -3,18 +3,18 @@
   <h2>
     Edit Post
   </h2>
-  <form class="edit-post-form">
+  <form class="edit-watchlist-form">
     <div>
-      <input name="post-title" type="text" value="{{post.title}}" />
-      <span>({{format_url post.post_url}})</span>
+      <input name="watchlist-title" type="text" value="{{watchlist.title}}" />
+      {{!-- <span>({{format_url post.post_url}})</span> --}}
     </div>
     <div>
-      {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}}
+      {{!-- {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}} --}}
       |
-      <a href="/post/{{post.id}}">{{post.reviews.length}} {{format_plural "reviews" post.reviews.length}}</a>
+      <a href="/watchlists/{{watchlist.id}}">{{watchlist.reviews.length}} {{format_plural "review" watchlist.reviews.length}}</a>
     </div>
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
+    <button type="submit">Save watchlist</button>
+    <button type="button" class="delete-watchlists-btn">Delete watchlist</button>
   </form>
 </article>
 
@@ -24,11 +24,11 @@
   </div>
 
   <div>
-    <button type="submit">add reviews</button>
+    <button type="submit">add review</button>
   </div>
 </form>
 
-{{> reviews post.reviews}}
+{{> reviews watchlist.reviews}}
 
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>

@@ -23,7 +23,9 @@ router.get('/', (req, res) => {
     ],
   })
     .then((dbWatchListData) => {
-      const watchlists = dbWatchListData.map((watchlist) => watchlist.get({ plain: true }));
+      const watchlists = dbWatchListData.map((watchlist) =>
+        watchlist.get({ plain: true })
+      );
 
       res.render('homepage', {
         watchlists,
@@ -37,7 +39,7 @@ router.get('/', (req, res) => {
 });
 
 // get single watchlist
-router.get('/watchlist/:id', (req, res) => {
+router.get('/watchlists/:id', (req, res) => {
   WatchList.findOne({
     where: {
       id: req.params.id,
@@ -46,7 +48,13 @@ router.get('/watchlist/:id', (req, res) => {
     include: [
       {
         model: Reviews,
-        attributes: ['id', 'reviews_text', 'watchlist_id', 'user_id', 'created_at'],
+        attributes: [
+          'id',
+          'reviews_text',
+          'watchlist_id',
+          'user_id',
+          'created_at',
+        ],
         include: {
           model: User,
           attributes: ['username'],
