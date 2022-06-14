@@ -1,6 +1,6 @@
 const User = require('./User');
 const WatchList = require('./WatchList');
-const Reviews = require('./Reviews');
+const Shows = require('./Shows');
 
 // create associations
 User.hasMany(WatchList, {
@@ -11,20 +11,20 @@ WatchList.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
-Reviews.belongsTo(User, {
+Shows.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
-Reviews.belongsTo(WatchList, {
+Shows.belongsTo(WatchList, {
   foreignKey: 'watchlist_id',
 });
 
-User.hasMany(Reviews, {
+User.hasMany(Shows, {
   foreignKey: 'user_id',
 });
 
-WatchList.hasMany(Reviews, {
+WatchList.hasMany(Shows, {
   foreignKey: 'watchlist_id',
 });
 
-module.exports = { User, WatchList, Reviews };
+module.exports = { User, WatchList, Shows };

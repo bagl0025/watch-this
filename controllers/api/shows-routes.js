@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { Reviews } = require('../../models');
+const { Shows } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
-  Reviews.findAll()
-    .then((dbReviewData) => res.json(dbReviewData))
+  Shows.findAll()
+    .then((dbShowData) => res.json(dbShowData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -12,12 +12,12 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-  Reviews.create({
-    reviews_text: req.body.reviews_text,
+  Shows.create({
+    shows_text: req.body.shows_text,
     user_id: req.session.user_id,
     watchlist_id: req.body.watchlist_id,
   })
-    .then((dbReviewData) => res.json(dbReviewData))
+    .then((dbShowData) => res.json(dbShowData))
     .catch((err) => {
       console.log(err);
       res.status(400).json(err);
@@ -25,17 +25,17 @@ router.post('/', withAuth, (req, res) => {
 });
 
 router.delete('/:id', withAuth, (req, res) => {
-  Reviews.destroy({
+  Shows.destroy({
     where: {
       id: req.params.id,
     },
   })
-    .then((dbReviewData) => {
-      if (!dbReviewData) {
-        res.status(404).json({ message: 'No review found with this id!' });
+    .then((dbShowData) => {
+      if (!dbShowData) {
+        res.status(404).json({ message: 'No show found with this id!' });
         return;
       }
-      res.json(dbReviewData);
+      res.json(dbShowData);
     })
     .catch((err) => {
       console.log(err);

@@ -1,35 +1,35 @@
 <article>
   <a href="/dashboard"> &larr; Back to dashboard</a>
   <h2>
-    Edit Post
+    Edit Watchlist
   </h2>
   <form class="edit-watchlist-form">
     <div>
       <input name="watchlist-title" type="text" value="{{watchlist.title}}" />
-      {{!-- <span>({{format_url post.post_url}})</span> --}}
+      {{!-- <span>({{format_url watchlist.watchlist_url}})</span> --}}
     </div>
     <div>
-      {{!-- {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}} --}}
+      {{!-- {{watchlist.vote_count}} {{format_plural "point" watchlist.vote_count}} by you on {{format_date watchlist.created_at}} --}}
       |
-      <a href="/watchlists/{{watchlist.id}}">{{watchlist.reviews.length}} {{format_plural "review" watchlist.reviews.length}}</a>
+      <a href="/watchlists/{{watchlist.id}}">{{watchlist.shows.length}} {{format_plural "show" watchlist.shows.length}}</a>
     </div>
     <button type="submit">Save watchlist</button>
     <button type="button" class="delete-watchlists-btn">Delete watchlist</button>
   </form>
 </article>
 
-<form class="reviews-form">
+<form class="shows-form">
   <div>
-    <textarea name="reviews-body"></textarea>
+    <textarea name="shows-body"></textarea>
   </div>
 
   <div>
-    <button type="submit">add review</button>
+    <button type="submit">add show</button>
   </div>
 </form>
 
-{{> reviews watchlist.reviews}}
+{{> shows watchlist.shows}}
 
-<script src="/javascript/edit-post.js"></script>
-<script src="/javascript/delete-post.js"></script>
-<script src="/javascript/reviews.js"></script>
+<script src="/javascript/edit-watchlist.js"></script>
+<script src="/javascript/delete-watchlist.js"></script>
+<script src="/javascript/shows.js"></script>

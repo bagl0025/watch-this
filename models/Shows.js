@@ -1,16 +1,16 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Reviews extends Model {}
+class Shows extends Model {}
 
-Reviews.init(
+Shows.init(
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    reviews_text: {
+    shows_text: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -40,8 +40,8 @@ Reviews.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'reviews',
+    modelName: 'shows',
   }
 );
 
-module.exports = Reviews;
+module.exports = Shows;

@@ -36,7 +36,7 @@ button:hover {
   background-color: #3486eb;
 }
 
-.post-list {
+.watchlist-list {
   margin: 0;
   padding: 0;
 }
@@ -109,20 +109,20 @@ main {
   color: #3486eb;
 }
 
-.delete-post-btn {
+.delete-watchlist-btn {
   background-color: #d41414;
 }
 
-.delete-post-btn:hover {
+.delete-watchlist-btn:hover {
   background-color: #ff643d;
 }
 
-.post {
+.watchlist {
   margin-bottom: 2%;
   line-height: 150%;
 }
 
-.post .title span {
+.watchlist .title span {
   font-style: italic;
   font-size: 90%;
   color: #7d7d7d;
@@ -142,30 +142,30 @@ main {
   background-color: #1f9c13;
 }
 
-.reviews-form {
+.shows-form {
   margin-bottom: 5%;
 }
 
-.review {
+.show {
   padding: 1%;
   margin-bottom: 1%;
 }
 
-.reviews:nth-child(odd) {
+.shows:nth-child(odd) {
   background-color: #fff5eb;
 }
 
-.reviews .meta {
+.shows .meta {
   font-size: 90%;
   margin-bottom: .5%;
   opacity: .6;
 }
 
-.new-post-form input {
+.new-watchlist-form input {
   width: 300px;
 }
 
-.edit-post-form {
+.edit-watchlist-form {
   margin-bottom: 5%;
 }
 
