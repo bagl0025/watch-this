@@ -1,38 +1,52 @@
+<div id="welcome-banner" class="jumbotron">
+  <h1 class="display-4">Watch This!</h1>
+  <p class="lead">We're living in an age of virtually unlimited entertainment options, and keeping up with it all can be a little overwhelming.</p>
+  <hr class="my-4">
+  <p>With customizable watchlists, you can track and organize all the TV shows and movies that you'll <strong>eventually</strong> get around to watching.</p>
+
+</div>
+
 <br>
-<h3>Current member?</h3>
-<h4>Login here:</h4>
+
 
 <form class="login-form">
-  <div>
-    <label for="email-login">email:</label>
-    <input type="text" id="email-login" />
+  <div class="form-header px-3 pt-3 pb-1">
+    <h3>Current member?</h3>
+    <h4>Login here:</h4>
+  </div>
+  <div class="form-group px-3">
+    <label for="email-login">Email address:</label>
+    <input type="email" id="email-login" class="form-control" placeholder="Enter email" aria-describedby="emailHelp" />
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group px-3">
+    <label for="password-login">Password:</label>
+    <input type="password" class="form-control" id="password-login" placeholder="Password" />
   </div>
   <div>
-    <label for="password-login">password:</label>
-    <input type="password" id="password-login" />
-  </div>
-  <div>
-    <button type="submit">login</button>
+    <button type="submit" class="btn btn-primary m-3">Login</button>
   </div>
 </form>
 
-<h3>New to Watch This!?</h3>
-<h4>Create your free account here:</h4>
 <form class="signup-form">
-  <div>
-    <label for="username-signup">username:</label>
-    <input type="text" id="username-signup" />
+  <div class="form-header px-3 pt-3 pb-1">
+    <h3>New to Watch This!?</h3>
+    <h4>Create your free account here:</h4>
+  </div>
+  <div class="form-group px-3">
+    <label for="email-signup">Email address:</label>
+    <input type="email" class="form-control" id="email-signup" placeholder="Enter email"/>
+  </div>
+  <div class="form-group px-3">
+    <label for="username-signup">Username:</label>
+    <input type="text" class="form-control" placeholder="New username" id="username-signup" />
+  </div>
+  <div class="form-group px-3">
+    <label for="password-signup">Password:</label>
+    <input type="password" id="password-signup" class="form-control" placeholder="New password"/>
   </div>
   <div>
-    <label for="email-signup">email:</label>
-    <input type="text" id="email-signup" />
-  </div>
-  <div>
-    <label for="password-signup">password:</label>
-    <input type="password" id="password-signup" />
-  </div>
-  <div>
-    <button type="submit">signup</button>
+    <button type="submit" class="btn btn-primary m-3">Signup</button>
   </div>
 </form>
 
