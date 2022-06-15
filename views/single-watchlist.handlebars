@@ -1,19 +1,21 @@
 {{> watchList-info watchlist}}
 
+{{> shows watchlist.shows}}
+
 {{#if loggedIn}}
-<form class="shows-form">
+<form class="reviews-form">
   <div>
-    <textarea name="shows-body"></textarea>
+    <textarea name="reviews-body"></textarea>
   </div>
 
   <div>
-    <button type="submit">add show</button>
+    <button type="submit">Add Review</button>
   </div>
 </form>
 {{/if}}
 
-{{> shows watchlist.shows}}
+{{> reviews watchlist.reviews}}
 
 {{#if loggedIn}}
-<script src="/javascript/shows.js"></script>
+<script src="/javascript/reviews.js"></script>
 {{/if}}

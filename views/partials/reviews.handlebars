@@ -1,11 +1,11 @@
 <div class="shows">
   {{#each this}}
-  <section class="show">
+  <section class="reviews">
     <div class="meta">
-      Date added: {{format_date created_at}}
+      {{user.username}} on {{format_date created_at}}
     </div>
     <div class="text">
-      {{shows_text}}
+      {{reviews_text}}
     </div>
   </section>
   {{/each}}
