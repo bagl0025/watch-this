@@ -9,34 +9,39 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
-<body>
-  <div class="wrapper">
-    <header>
-      <ul class="nav">
-        <li class="nav-item">
+<body class="w-100">
+  <header class="w-100">
+    <nav class="nav-bar navbar-expand-lg">
+      <ul class="navbar-nav container-fluid mw-100  mt-0 d-lg-flex align-items-center">
+        <li class="nav-item h-100">
+          <a class="navbar-brand h-100" href="#">
+          <img src="Logo.png" alt="" width="90" height="50" class="d-inline-block align-text-center m-3">
+          Watch This!
+          </a>
+        </li>
+        <li class="nav-item h-100">
           <a class="nav-link" href="/">Home</a>
         </li>
         {{#if loggedIn}}
-        <li class="nav-item">
+        <li class="nav-item h-100">
           <a href="/dashboard" class="nav-link">Dashboard</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item h-100">
           <a href="" class="nav-link" id="logout" href="">Logout</a>
         </li>
         {{else}}
-        <li class="nav-item">
+        <li class="nav-item h-100">
           <a href="/login" class="nav-link">Login</a>
         </li>
         {{/if}}
       </ul>
-    </header>
-    <main>
-      {{{ body }}}
-    </main>
-    <footer>
-      Thanks for visiting!
-    </footer>
-  </div>
+    </nav>
+  </header>
+  <main class="align-items-center">
+    {{{ body }}}
+  </main>
+
+
   
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
