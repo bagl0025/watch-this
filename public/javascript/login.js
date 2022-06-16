@@ -40,8 +40,15 @@ async function signupFormHandler(event) {
       headers: { 'Content-Type': 'application/json' }
     });
 
+console.log("====================CHECKOUT THE BIG BRAIN ON THE NEW USER!=====================");
+
     if (response.ok) {
+      main();
+      console.log("email sent to: {some users email} ");
+
       document.location.replace('/dashboard/');
+
+      
     } else {
       alert(response.statusText);
     }
