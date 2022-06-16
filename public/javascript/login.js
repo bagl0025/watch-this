@@ -41,7 +41,12 @@ async function signupFormHandler(event) {
     });
 
     if (response.ok) {
+      main();
+      console.log("email sent to: {{{res.body.email}}} ");
+
       document.location.replace('/dashboard/');
+
+      
     } else {
       alert(response.statusText);
     }
