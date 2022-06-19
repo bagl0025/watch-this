@@ -40,17 +40,11 @@ async function signupFormHandler(event) {
       headers: { 'Content-Type': 'application/json' }
     });
 
-console.log("====================CHECKOUT THE BIG BRAIN ON THE NEW USER!=====================");
 
     if (response.ok) {
-      main();
-      console.log("email sent to: {some users email} ");
 
+      console.log("Why is this not working?")
       document.location.replace('/dashboard/');
-
-      
-    } else {
-      alert(response.statusText);
     }
   }
 }
@@ -58,3 +52,5 @@ console.log("====================CHECKOUT THE BIG BRAIN ON THE NEW USER!========
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
 
 document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+
+document.addEventListener('submit', emailWelcome());
