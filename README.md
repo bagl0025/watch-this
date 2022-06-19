@@ -8,7 +8,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-We're living in an age of virtually unlimited ntertainment options, and keeping up with it all can be a little overwhelming. Using the Watch This! App you can create customizable watchlists that allow you to track and organize all the TV shows and movies that you'll eventually get around to watching.
+We're living in an age of virtually unlimited entertainment options, and keeping up with it all can be a little overwhelming. Using the Watch This! App you can create customizable watchlists that allow you to track and organize all the TV shows and movies that you'll eventually get around to watching.
 
 # Table of Contents
 
@@ -21,7 +21,7 @@ We're living in an age of virtually unlimited ntertainment options, and keeping 
 
 ## Usage
 
-After logging in or creating a new user you can create watchlists. If you edit those watchlists you can add shows and reviews. The main page will show watchlists from all users. The dashboard will show only the logged in users's shows
+After logging in or creating a new user you can create watchlists. If you edit those watchlists you can add shows and reviews. The main page will show watchlists from all users. The dashboard will show only the logged in user's shows
 
 <img src="./public/assets/screenshot.png" alt="watch this screenshot" width="600"/>
 
